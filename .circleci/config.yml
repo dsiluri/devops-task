@@ -2,9 +2,15 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: fpco/stack-build-small:lts
+      - image: fpco/stack-run:lts
     steps:
       - checkout
+      - run:
+          name: Resolve/Update Dependencies
+          command: stack --no-terminal setup
+      - run:
+          name: Execute Stack test
+          command: stack --no-terminal test -j1
       - run:
           name: Stack startup
           command: stack build
@@ -14,6 +20,4 @@ jobs:
       #- run:
       #    name: Display Stack version
       #    command: stack --version
-      #- run:
-      #    name: Execute Stack test
-      #    command: stack test
+
