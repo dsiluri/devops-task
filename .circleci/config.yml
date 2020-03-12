@@ -5,4 +5,9 @@ jobs:
       - image: fpco/stack-build-small:lts
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run:
+          name: Display Stack version
+          command: 'stack --version'
+     - run:
+          name: Execute Stack test
+          command: stack test     
