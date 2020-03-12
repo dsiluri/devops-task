@@ -6,8 +6,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Display Stack version
-          command: stack --version
+          name: Start Stack server
+          command: stack start
       - run:
-          name: Execute Stack test
-          command: stack test
+          name: Exec DevOps Haskell app
+          command: stack exec devops-api
+      #- run:
+      #    name: Display Stack version
+      #    command: stack --version
+      #- run:
+      #    name: Execute Stack test
+      #    command: stack test
