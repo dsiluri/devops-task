@@ -10,4 +10,4 @@ jobs:
           command: 'stack --version'
      - run:
           name: Execute Stack test
-          command: stack test     
+          command: 'stack test' 
