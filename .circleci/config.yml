@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Start Stack server
-          command: stack start
+          name: Stack startup
+          command: stack build
       - run:
           name: Exec DevOps Haskell app
           command: stack exec devops-api
