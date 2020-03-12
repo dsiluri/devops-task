@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Display Stack version
-          command: 'stack --version'
-     - run:
+          command: stack --version
+      - run:
           name: Execute Stack test
-          command: 'stack test' 
+          command: stack test
