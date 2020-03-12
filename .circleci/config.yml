@@ -1,0 +1,8 @@
+version: 2
+ jobs:
+   build:
+     docker:
+       - image: fpco/stack-build:lts
+     steps:
+       - checkout
+       - run: echo "A first hello"
