@@ -15,6 +15,9 @@ jobs:
           name: Display curl version
           command: curl --version
       - run:
+          name: Display stack ps
+          command: 'ps -ef|grep stack'
+      - run:
           name: Test server
           command: |
             curl -v -X POST http://localhost:3000/api/ -d '{"jsonrpc": "2.0", "id": 0, "method": "get_raw_transactions", "params": { "address": "SOMEADDRESS" } }' -H 'Content-Type: application/json' -u user:pass
