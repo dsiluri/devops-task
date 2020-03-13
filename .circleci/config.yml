@@ -5,12 +5,18 @@ jobs:
       - image: fpco/stack-build-small:lts
     steps:
       - checkout
+      - restore_cache:
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          name: Restore Cached Dependencies
+          keys:
+            - devops-task-{{ checksum "stack.yaml" }}-{{ checksum "package.yaml" }}
+            - devops-task-{{ checksum "stack.yaml" }}
       - run:
           name: Resolve/Update Dependencies
           command: stack --no-terminal setup
-      - run:
-          name: Execute Stack test
-          command: stack --no-terminal test -j1
+      #- run:
+      #    name: Execute Stack test
+      #    command: stack --no-terminal test -j1
       - run:
           name: Stack startup
           command: stack build
@@ -20,4 +26,9 @@ jobs:
       #- run:
       #    name: Display Stack version
       #    command: stack --version
-
+       - save_cache:
+          name: Cache Dependencies
+          key: devops-task-{{ checksum "stack.yaml" }}-{{ checksum "package.yaml" }}
+          paths:
+            - "/root/.stack"
+            - ".stack-work
