@@ -11,6 +11,7 @@ jobs:
       - run:
           name: Exec DevOps Haskell app
           command: stack exec devops-api &
-          command: |
-            curl -v -X POST http://localhost:3000/api/ -d '{"jsonrpc": "2.0", "id": 0, "method": "get_raw_transactions", "params": { "address": "SOMEADDRESS" } }' -H 'Content-Type: application/json' -u user:pass
+          command: curl --version
+          #command: |
+          #  curl -v -X POST http://localhost:3000/api/ -d '{"jsonrpc": "2.0", "id": 0, "method": "get_raw_transactions", "params": { "address": "SOMEADDRESS" } }' -H 'Content-Type: application/json' -u user:pass
  
