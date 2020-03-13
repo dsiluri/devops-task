@@ -8,14 +8,14 @@ jobs:
       - run:
           name: Stack startup
           command: stack build
-      - run:
-          name: Exec DevOps Haskell app
-          command: stack exec devops-api
   test:
     docker:
       - image: galactica/stack-build-dsiluri:0.1
     steps:
       - checkout
+      - run:
+          name: Exec DevOps Haskell app
+          command: stack exec devops-api
       - run:
           name: Server test
           command: |
