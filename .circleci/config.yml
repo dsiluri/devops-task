@@ -12,7 +12,7 @@ jobs:
           name: Exec DevOps Haskell app
           command: stack exec devops-api
   test:
-     docker:
+    docker:
       - image: galactica/stack-build-dsiluri:0.1
     steps:
       - checkout
