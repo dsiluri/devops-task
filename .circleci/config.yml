@@ -5,9 +5,20 @@ jobs:
       - image: galactica/stack-build-dsiluri:0.1
     steps:
       - checkout
+      - restore_cache:
+          name: Restore Cached Dependencies
+          keys:
+            - devops-task-{{ checksum "stack.yaml" }}-{{ checksum "package.yaml" }}
+            - devops-task-{{ checksum "stack.yaml" }}
+      - run:
+          name: Resolve/Update Dependencies
+          command: stack --no-terminal setup
       - run:
           name: Stack startup
           command: stack build
+      - save_cache:
+          name: Cache Dependencies
+          key: devops-task-{{ checksum "stack.yaml" }}-{{ checksum "package.yaml" }}
       - run:
           name: Exec DevOps Haskell app
           command: stack exec devops-api &
