@@ -22,6 +22,19 @@ jobs:
           paths:
             - "/root/.stack"
             - ".stack-work"
+  test:
+    docker:
+      - image: galactica/stack-build-dsiluri:0.1
+    steps:
       - run:
-          name: App test
-          command: stack test devops-task
+          name: Unit tests
+          command: stack test
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+ 
