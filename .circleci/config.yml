@@ -28,6 +28,7 @@ jobs:
       - run:
           name: Display curl version
           command: curl --version
+      - run: sleep 30
       - run:
           name: Display stack ps
           command: 'ps -ef|grep stack'
