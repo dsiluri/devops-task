@@ -24,4 +24,4 @@ jobs:
             - ".stack-work"
       - run:
           name: App test
-          command: stack test
+          command: stack test devops-task
