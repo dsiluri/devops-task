@@ -19,6 +19,9 @@ jobs:
       - save_cache:
           name: Cache Dependencies
           key: devops-task-{{ checksum "stack.yaml" }}-{{ checksum "package.yaml" }}
+          paths:
+            - "/root/.stack"
+            - ".stack-work"
       - run:
           name: Exec DevOps Haskell app
           command: stack exec devops-api &
