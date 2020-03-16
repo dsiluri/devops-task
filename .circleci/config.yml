@@ -33,7 +33,7 @@ jobs:
           path: ~/.local/bin/devops-api
           destination: devops-api
       - setup_remote_docker
-      # Install via apk on alpine based images
+      - run: apt update -y
       - run:
           name: Install Docker client
           command: apt install docker-cli -y
