@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: galactica/stack-build-dsiluri:0.1
+      - image: fpco/stack-build-small:lts
     steps:
       - checkout
       - restore_cache:
@@ -25,6 +25,9 @@ jobs:
       - run:
           name: Unit tests
           command: stack test
+      - run:
+          name: Install executable
+          command: stack --no-terminal install
       - store_artifacts:
           # Upload buildresults for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
           path: ~/.local/bin/devops-task-haskell-exe 
