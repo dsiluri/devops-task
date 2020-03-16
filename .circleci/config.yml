@@ -27,7 +27,7 @@ jobs:
       - image: galactica/stack-build-dsiluri:0.1
     steps:
       - checkout
-      - run: stack init
+      - run: stack init --force
       - run:
           name: Unit tests
           command: stack test
