@@ -1,5 +1,5 @@
 # Use the existing Haskell image as our base
-FROM haskell:8.8.3
+FROM fpco/stack-build-small:lts
 RUN stack setup
 RUN stack build
 RUN stack test
