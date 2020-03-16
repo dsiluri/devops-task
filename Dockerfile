@@ -1,5 +1,5 @@
 # Use the existing Haskell image as our base
-FROM haskell:8.8.3# Checkout our code onto the Docker container
+FROM haskell:8.8.3
 WORKDIR /app
 ADD . /app# Build and test our code, then install the “run-server” executable
 RUN stack setup
