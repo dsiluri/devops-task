@@ -22,21 +22,10 @@ jobs:
           paths:
             - "/root/.stack"
             - ".stack-work"
-  test:
-    docker:
-      - image: galactica/stack-build-dsiluri:0.1
-    steps:
-      - checkout
-      - run: 'stack init --force'
       - run:
           name: Unit tests
           command: stack test
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
- 
+      - store_artifacts:
+          # Upload buildresults for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
+          path: ~/.local/bin/devops-task-haskell-exe 
+          destination: devops-task-haskell-exe
