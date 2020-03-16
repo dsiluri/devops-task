@@ -12,7 +12,7 @@ jobs:
             - devops-task-{{ checksum "stack.yaml" }}
       - run:
           name: Resolve/Update Dependencies
-          command: stack --no-terminal setup
+          command: stack setup
       - run:
           name: Stack startup
           command: stack build
@@ -27,7 +27,7 @@ jobs:
           command: stack test
       - run:
           name: Install executable
-          command: stack --no-terminal install
+          command: stack install
       - store_artifacts:
           # Upload buildresults for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
           path: ~/.local/bin/devops-api
