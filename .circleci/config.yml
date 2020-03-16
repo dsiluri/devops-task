@@ -26,6 +26,7 @@ jobs:
     docker:
       - image: galactica/stack-build-dsiluri:0.1
     steps:
+      - checkout
       - run: stack init
       - run:
           name: Unit tests
