@@ -36,7 +36,7 @@ jobs:
       - run: apt update -y
       - run:
           name: Install Docker client
-          command: apt install docker-cli -y
+          command: apt install docker-ce-cli -y
       - run: |
           TAG=0.1.$CIRCLE_BUILD_NUM
           docker build -t $DOCKER_USER/devops-task:$TAG .
