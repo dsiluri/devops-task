@@ -23,7 +23,10 @@ jobs:
             - "/root/.stack"
             - ".stack-work"
   test:
+    docker:
+      - image: galactica/stack-build-dsiluri:0.1
     steps:
+      - run: stack init
       - run:
           name: Unit tests
           command: stack test
