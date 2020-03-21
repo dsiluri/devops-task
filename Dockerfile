@@ -6,4 +6,4 @@ RUN ls -l /root/.local/bin
 RUN stack setup
 RUN stack build --test --copy-bins
 EXPOSE 3000
-ENTRYPOINT [“stack exec devops-api”]
+ENTRYPOINT [“stack", "exec", "devops-api”]
