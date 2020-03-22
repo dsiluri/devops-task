@@ -6,4 +6,5 @@ RUN ls -l /root/.local/bin
 RUN stack setup
 RUN stack build --test --copy-bins
 EXPOSE 3000
+CMD tail -f /dev/null
 ENTRYPOINT [ “/usr/bin/stack", "exec", "devops-api” ]
