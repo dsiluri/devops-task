@@ -4,7 +4,6 @@ WORKDIR /root/.local/bin
 ADD . /root/.local/bin
 RUN ls -l /root/.local/bin
 RUN stack setup
-RUN stack build --test --copy-bins
+RUN stack test --fast --copy-bins
 EXPOSE 3000
-CMD tail -f /dev/null
-ENTRYPOINT [ “/usr/bin/stack", "exec", "devops-api” ]
+ENTRYPOINT [ “/root/.local/bin/devops-api” ]
