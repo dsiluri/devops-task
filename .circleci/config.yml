@@ -15,6 +15,9 @@ jobs:
           command: stack setup
       - run:
           name: Stack startup
+          command: stack --version
+      - run:
+          name: Stack startup
           command: stack build
       - save_cache:
           name: Cache Dependencies
